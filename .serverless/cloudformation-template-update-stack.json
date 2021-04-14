@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/flightlog-api/dev/1618386807621-2021-04-14T07:53:27.621Z/flightlog-api.zip"
+          "S3Key": "serverless/flightlog-api/dev/1618388178295-2021-04-14T08:16:18.295Z/flightlog-api.zip"
         },
         "Handler": "index.handler",
         "Runtime": "nodejs12.x",
@@ -179,14 +179,14 @@
         "AppLogGroup"
       ]
     },
-    "AppLambdaVersionTKaPpUPDpXZ4CobpIo0dxdYWB4xeVDNHadyTe86O8": {
+    "AppLambdaVersionvozxdKK3mAOZzPL8lTlSzTtmQA7a8n5mo6Ipj7s03o": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "o/IWdCn9wPoMe8qletpCw6kFAJuD+lIfDZ/u+8BIebU="
+        "CodeSha256": "WXLLSPozWYEEYPTAFnyx+sxk3g5aIR0rlPO7rhDR9N4="
       }
     },
     "ApiGatewayRestApi": {
@@ -305,7 +305,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1618386803208": {
+    "ApiGatewayDeployment1618388173481": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -365,7 +365,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersionTKaPpUPDpXZ4CobpIo0dxdYWB4xeVDNHadyTe86O8"
+        "Ref": "AppLambdaVersionvozxdKK3mAOZzPL8lTlSzTtmQA7a8n5mo6Ipj7s03o"
       }
     },
     "ServiceEndpoint": {

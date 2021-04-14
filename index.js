@@ -1,3 +1,4 @@
+const serverless = require("serverless-http");
 const express = require("express");
 const connection = require("./knexfile")[process.env.NODE_ENV || "development"];
 const db = require("knex")(connection);
@@ -9,6 +10,8 @@ app.use(express.json());
 app.get("/", (request, response) => {
   response.send("hooray");
 });
+
+// for test only
 app.get("/users", async (request, response) => {
   const allUsers = await db.select("user").from("records");
   response.send(allUsers);
@@ -21,7 +24,7 @@ app.get("/flightlist/:user", async (request, response) => {
   response.send(allFlights);
 });
 
-app.post("/newflight", async (request, response) => {
+app.post("/flightlist", async (request, response) => {
   const params = await request.body;
   await db("records").insert({
     user: params.user,
@@ -36,3 +39,5 @@ app.post("/newflight", async (request, response) => {
 });
 
 app.listen(port, () => console.log(`listening on port: ${port}`));
+
+module.exports.handler = serverless(app);
