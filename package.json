@@ -1,0 +1,15 @@
+{
+  "name": "flightlog-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Jetcoderz/flightlog-back.git",
+  "author": "Francesca Marino <fjmarino90@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "knex": "^0.95.4",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
