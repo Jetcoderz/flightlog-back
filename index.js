@@ -1,11 +1,13 @@
 const serverless = require("serverless-http");
 const express = require("express");
+const cors = require("cors");
 const connection = require("./knexfile")[process.env.NODE_ENV || "development"];
 const db = require("knex")(connection);
 const app = express();
 const port = process.env.PORT || 5005;
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (request, response) => {
   response.send("hooray");
