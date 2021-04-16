@@ -1,57 +1,55 @@
 exports.seed = function (knex) {
-  // Deletes ALL existing entries
-  return knex("records")
+  return knex("flights")
     .del()
     .then(function () {
-      // Inserts seed entries
-      return knex("records").insert([
+      return knex("flights").insert([
         {
-          user: "Merlin",
+          username: "Merlin",
           date: "2021/04/14",
           purpose: "travel",
           flightNo: "JQ116",
-          departure: "NRT",
-          arrival: "ITM",
+          depAirport: "NRT",
+          arrAirport: "ITM",
         },
         {
-          user: "Merlin",
+          username: "Merlin",
           date: "2021/02/18",
           purpose: "business",
           flightNo: "AA30",
-          departure: "NRT",
-          arrival: "ORD",
+          depAirport: "NRT",
+          arrAirport: "ORD",
         },
         {
-          user: "Merlin",
+          username: "Merlin",
           date: "2021/03/02",
           purpose: "travel",
           flightNo: "JQ102",
-          departure: "NRT",
-          arrival: "HKG",
+          depAirport: "NRT",
+          arrAirport: "HKG",
         },
         {
-          user: "Jeff",
+          username: "Jeff",
           date: "2021/03/23",
           purpose: "travel",
           flightNo: "JL58",
-          departure: "NRT",
-          arrival: "SFO",
+          depAirport: "NRT",
+          arrAirport: "SFO",
         },
         {
-          user: "Takuma",
+          username: "Takuma",
           date: "2021/04/13",
           purpose: "travel",
           flightNo: "SQ336",
-          departure: "SIN",
-          arrival: "CDG",
+          depAirport: "SIN",
+          arrAirport: "CDG",
         },
         {
-          user: "Maya",
+          username: "Maya",
           date: "2021/01/14",
           purpose: "travel",
           flightNo: "AA32",
-          departure: "LAX",
-          arrival: "JFK",
+          depAirport: "LAX",
+          arrAirport: "JFK",
         },
       ]);
     });

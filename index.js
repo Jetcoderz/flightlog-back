@@ -18,14 +18,14 @@ app.get("/", (request, response) => {
 
 // distinct list of users
 app.get("/users", async (request, response) => {
-  const allUsers = await db("records").distinct("user");
+  const allUsers = await db.select("*").from("users");
   response.send(allUsers);
 });
 
 // get list of flight of a user
-app.get("/flightlist/:user", async (request, response) => {
-  const allFlights = await db.select("*").from("records").where({
-    user: request.params.user,
+app.get("/flightlist/:username", async (request, response) => {
+  const allFlights = await db.select("*").from("flights").where({
+    username: request.params.username,
   });
   response.send(allFlights);
 });
@@ -33,15 +33,29 @@ app.get("/flightlist/:user", async (request, response) => {
 // post a new flight
 app.post("/flightlist", async (request, response) => {
   const params = await request.body;
-  await db("records").insert({
-    user: params.user,
+  await db("flights").insert({
+    username: params.username,
+    date: params.date,
+    flightNo: params.flightNo,
+    depAirport: params.depAirport,
+    arrAirport: params.arrAirport,
+    depGate: params.depGate,
+    arrGate: params.arrGate,
+    takeoff: params.takeoff,
+    landing: params.landing,
+    airline: params.airline,
+    plane: params.plane,
+    purpose: params.purpose,
+    entertainment: params.entertainment,
+    meal: params.meal,
+    seatNo: params.seatNo,
+    review: params.review,
+  });
+  const newFlight = await db.select("*").from("flights").where({
+    username: params.username,
     date: params.date,
     flightNo: params.flightNo,
   });
-  const newFlight = await db
-    .select("*")
-    .from("records")
-    .where({ user: params.user, date: params.date, flightNo: params.flightNo });
   response.send(newFlight);
 });
 
