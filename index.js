@@ -18,7 +18,7 @@ app.get("/", (request, response) => {
 
 // distinct list of users
 app.get("/users", async (request, response) => {
-  const allUsers = await db("flights").distinct("username");
+  const allUsers = await db.select("*").from("users");
   response.send(allUsers);
 });
 
