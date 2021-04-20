@@ -44,6 +44,7 @@ app.post("/flightlist", async (request, response) => {
     takeoff: params.takeoff,
     landing: params.landing,
     airline: params.airline,
+    airlineICAO: params.airlineICAO,
     plane: params.plane,
     purpose: params.purpose,
     entertainment: params.entertainment,
