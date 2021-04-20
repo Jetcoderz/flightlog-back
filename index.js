@@ -30,6 +30,14 @@ app.get("/flightlist/:username", async (request, response) => {
   response.send(allFlights);
 });
 
+// get list of all photo urls for a flight
+app.get("/photos/:flightID", async (request, response) => {
+  const allPhotos = await db.select("*").from("photos").where({
+    flightID: request.params.flightID,
+  });
+  response.send(allPhotos);
+});
+
 // post a new flight
 app.post("/flightlist", async (request, response) => {
   const params = await request.body;
