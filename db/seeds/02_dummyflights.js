@@ -66,6 +66,23 @@ exports.seed = function (knex) {
           depAirport: "LAX",
           arrAirport: "JFK",
         },
+        {
+          username: "Maya",
+          date: "2021/04/13",
+          flightNo: "SQ336",
+          depGate: "56",
+          arrGate: "2",
+          depAirport: "SIN",
+          arrAirport: "CDG",
+          takeoff: "2021-04-19T07:15:00+00:00",
+          landing: "2021-04-19T09:15:00+00:00",
+          airlineICAO: "SIA",
+          purpose: "Business",
+          entertainment: ["Watching drama", "Reading a book"],
+          meal: "fish",
+          seatNo: "5A",
+          review: "Excellent",
+        },
       ]);
     });
 };
