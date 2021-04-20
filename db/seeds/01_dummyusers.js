@@ -21,6 +21,10 @@ exports.seed = function (knex) {
           username: "Maya",
           pw: "1234",
         },
+        {
+          username: "Sorai",
+          pw: "demo",
+        },
       ]);
     });
 };
