@@ -76,6 +76,37 @@ app.get("/aviation/:flightNum", async (request, response) => {
   response.json(allFlights.data.data[0]);
 });
 
+// AWS Setup
+const AWS = require("aws-sdk");
+const credentials = {
+  accessKeyId: process.env.S3_ACCESS_KEY,
+  secretAccessKey: process.env.S3_SECRET_KEY,
+};
+AWS.config.update({ credentials: credentials, region: "ap-northeast-1" });
+const s3 = new AWS.S3();
+
+// Return AWS presigned URL: PUT
+app.get("/awsPUT/:file", async (request, response) => {
+  const presignedPUTURL = s3.getSignedUrl("putObject", {
+    Bucket: "flightlogpics",
+    Key: request.params.file,
+    Expires: 100,
+  });
+
+  response.send(presignedPUTURL);
+});
+
+// Return AWS presigned URL: GET
+app.get("/awsGET/:file", async (request, response) => {
+  const presignedGETURL = s3.getSignedUrl("getObject", {
+    Bucket: "flightlogpics",
+    Key: request.params.file,
+    Expires: 100,
+  });
+
+  response.send(presignedGETURL);
+});
+
 app.listen(port, () => console.log(`listening on port: ${port}`));
 
 module.exports.handler = serverless(app);
