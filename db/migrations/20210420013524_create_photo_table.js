@@ -2,7 +2,7 @@ exports.up = function (knex) {
   return knex.schema.createTable("photos", function (table) {
     table.increments("id").primary();
     table.string("url").notNullable();
-    table.string("flightID").notNullable();
+    table.integer("flightID").notNullable();
   });
 };
 
