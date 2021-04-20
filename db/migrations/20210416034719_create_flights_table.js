@@ -11,6 +11,7 @@ exports.up = function (knex, Promise) {
     table.timestamp("takeoff");
     table.timestamp("landing");
     table.string("airline");
+    table.string("airlineICAO");
     table.string("plane");
     table.string("purpose");
     table.specificType("entertainment", "text ARRAY");
