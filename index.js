@@ -38,6 +38,18 @@ app.get("/photos/:flightID", async (request, response) => {
   response.send(allPhotos);
 });
 
+// add photo urls for a flight
+app.post("/photos", async (request, response) => {
+  await db("photos").insert({
+    url: request.body.url,
+    flightID: request.body.flightID,
+  });
+  const newPhotos = await db.select("*").from("photos").where({
+    flightID: request.body.flightID,
+  });
+  response.send(newPhotos);
+});
+
 // post a new flight
 app.post("/flightlist", async (request, response) => {
   const params = await request.body;
@@ -82,7 +94,11 @@ const credentials = {
   accessKeyId: process.env.S3_ACCESS_KEY,
   secretAccessKey: process.env.S3_SECRET_KEY,
 };
-AWS.config.update({ credentials: credentials, region: "ap-northeast-1" });
+AWS.config.update({
+  credentials: credentials,
+  region: "ap-northeast-1",
+  signatureVersion: "v4",
+});
 const s3 = new AWS.S3();
 
 // Return AWS presigned URL: PUT
