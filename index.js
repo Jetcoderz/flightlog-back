@@ -38,6 +38,18 @@ app.get("/photos/:flightID", async (request, response) => {
   response.send(allPhotos);
 });
 
+// add photo urls for a flight
+app.post("/photos", async (request, response) => {
+  await db("photos").insert({
+    url: request.body.url,
+    flightID: request.body.flightID,
+  });
+  const newPhotos = await db.select("*").from("photos").where({
+    flightID: request.body.flightID,
+  });
+  response.send(newPhotos);
+});
+
 // post a new flight
 app.post("/flightlist", async (request, response) => {
   const params = await request.body;
@@ -74,6 +86,41 @@ app.get("/aviation/:flightNum", async (request, response) => {
     `http://api.aviationstack.com/v1/flights?access_key=${API_KEY}&flight_iata=${request.params.flightNum}`
   );
   response.json(allFlights.data.data[0]);
+});
+
+// AWS Setup
+const AWS = require("aws-sdk");
+const credentials = {
+  accessKeyId: process.env.S3_ACCESS_KEY,
+  secretAccessKey: process.env.S3_SECRET_KEY,
+};
+AWS.config.update({
+  credentials: credentials,
+  region: "ap-northeast-1",
+  signatureVersion: "v4",
+});
+const s3 = new AWS.S3();
+
+// Return AWS presigned URL: PUT
+app.get("/awsPUT/:file", async (request, response) => {
+  const presignedPUTURL = s3.getSignedUrl("putObject", {
+    Bucket: "flightlogpics",
+    Key: request.params.file,
+    Expires: 100,
+  });
+
+  response.send(presignedPUTURL);
+});
+
+// Return AWS presigned URL: GET
+app.get("/awsGET/:file", async (request, response) => {
+  const presignedGETURL = s3.getSignedUrl("getObject", {
+    Bucket: "flightlogpics",
+    Key: request.params.file,
+    Expires: 100,
+  });
+
+  response.send(presignedGETURL);
 });
 
 app.listen(port, () => console.log(`listening on port: ${port}`));
