@@ -4,7 +4,7 @@ exports.seed = function (knex) {
     .then(function () {
       return knex("flights").insert([
         {
-          username: "Merlin",
+          username: "fjmarino90@gmail.com",
           date: "2021/04/14",
           purpose: "travel",
           flightNo: "JL3003",
@@ -13,7 +13,7 @@ exports.seed = function (knex) {
           arrAirport: "ITM",
         },
         {
-          username: "Merlin",
+          username: "fjmarino90@gmail.com",
           date: "2021/02/18",
           purpose: "business",
           flightNo: "AA30",
@@ -22,7 +22,7 @@ exports.seed = function (knex) {
           arrAirport: "ORD",
         },
         {
-          username: "Merlin",
+          username: "fjmarino90@gmail.com",
           date: "2021/03/02",
           purpose: "travel",
           flightNo: "CX521",
@@ -31,7 +31,7 @@ exports.seed = function (knex) {
           arrAirport: "HKG",
         },
         {
-          username: "Jeff",
+          username: "cyjeff@gmail.com",
           date: "2021/03/23",
           purpose: "travel",
           flightNo: "JL58",
@@ -40,7 +40,7 @@ exports.seed = function (knex) {
           arrAirport: "SFO",
         },
         {
-          username: "Jeff",
+          username: "cyjeff@gmail.com",
           date: "2021/02/23",
           purpose: "travel",
           flightNo: "NH239",
@@ -49,7 +49,7 @@ exports.seed = function (knex) {
           arrAirport: "FUK",
         },
         {
-          username: "Takuma",
+          username: "ysm0706glee@gmail.com",
           date: "2021/04/13",
           purpose: "travel",
           flightNo: "SQ336",
@@ -58,7 +58,7 @@ exports.seed = function (knex) {
           arrAirport: "CDG",
         },
         {
-          username: "Maya",
+          username: "mayashinagawa@gmail.com",
           date: "2021/01/14",
           purpose: "travel",
           flightNo: "AA32",
@@ -67,7 +67,7 @@ exports.seed = function (knex) {
           arrAirport: "JFK",
         },
         {
-          username: "Maya",
+          username: "mayashinagawa@gmail.com",
           date: "2021/04/13",
           flightNo: "SQ336",
           depGate: "56",
@@ -84,7 +84,7 @@ exports.seed = function (knex) {
           review: "Excellent",
         },
         {
-          username: "Sorai",
+          username: "teamjetcoderz@gmail.com",
           date: "2021/02/13",
           flightNo: "JL319",
           depGate: "13",
@@ -101,7 +101,7 @@ exports.seed = function (knex) {
           review: "Nice weather",
         },
         {
-          username: "Sorai",
+          username: "teamjetcoderz@gmail.com",
           date: "2021/02/28",
           flightNo: "NH2477",
           depGate: "54",
@@ -118,7 +118,7 @@ exports.seed = function (knex) {
           review: "Busy trip",
         },
         {
-          username: "Sorai",
+          username: "teamjetcoderz@gmail.com",
           date: "2021/03/06",
           flightNo: "JL119",
           depGate: "12",
@@ -135,7 +135,7 @@ exports.seed = function (knex) {
           review: "With manager",
         },
         {
-          username: "Sorai",
+          username: "teamjetcoderz@gmail.com",
           date: "2021/03/15",
           flightNo: "KE704",
           depGate: "25",
@@ -152,7 +152,7 @@ exports.seed = function (knex) {
           review: "Had a PCR test",
         },
         {
-          username: "Sorai",
+          username: "teamjetcoderz@gmail.com",
           date: "2021/03/29",
           flightNo: "NH553",
           depGate: "46",
@@ -169,7 +169,7 @@ exports.seed = function (knex) {
           review: "Family Trip",
         },
         {
-          username: "Sorai",
+          username: "teamjetcoderz@gmail.com",
           date: "2021/04/05",
           flightNo: "NH401",
           depGate: "52",
@@ -186,7 +186,7 @@ exports.seed = function (knex) {
           review: "A heavy rainy day",
         },
         {
-          username: "Sorai",
+          username: "teamjetcoderz@gmail.com",
           date: "2021/04/12",
           flightNo: "JL375",
           depGate: "4",

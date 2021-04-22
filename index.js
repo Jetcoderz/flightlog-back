@@ -38,6 +38,19 @@ app.get("/photos/:flightID", async (request, response) => {
   response.send(allPhotos);
 });
 
+// delete a photo
+app.delete("/photos/:photoID", async (request, response) => {
+  await db("photos").where({ id: request.params.photoID }).del();
+  response.send("Deleted");
+});
+
+// delete a flight
+app.delete("/flightlist/:flightID", async (request, response) => {
+  await db("flights").where({ id: request.params.flightID }).del();
+  await db("photos").where({ flightID: request.params.flightID }).del();
+  response.send("Deleted");
+});
+
 // add photo urls for a flight
 app.post("/photos", async (request, response) => {
   await db("photos").insert({
