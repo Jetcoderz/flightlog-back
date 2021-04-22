@@ -13,17 +13,17 @@ exports.seed = function (knex) {
         {
           url:
             "https://flightlogpics.s3-ap-northeast-1.amazonaws.com/gate.jpeg",
-          flightID: 1,
+          flightID: 2,
         },
         {
           url:
             "https://flightlogpics.s3-ap-northeast-1.amazonaws.com/meal.jpeg",
-          flightID: 1,
+          flightID: 3,
         },
         {
           url:
             "https://flightlogpics.s3-ap-northeast-1.amazonaws.com/window.jpeg",
-          flightID: 1,
+          flightID: 4,
         },
       ]);
     });
