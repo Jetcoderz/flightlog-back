@@ -101,6 +101,26 @@ app.get("/aviation/:flightNum", async (request, response) => {
   response.json(allFlights.data.data[0]);
 });
 
+// get a ql-code url for a flight
+app.get("/qr-codes/:flightID", async (request, response) => {
+  const qlCode = await db.select("*").from("qr_codes").where({
+    flightID: request.params.flightID,
+  });
+  response.send(qlCode);
+});
+
+// add ql-code url for a flight
+app.post("/qr-codes", async (request, response) => {
+  await db("qr_codes").insert({
+    url: request.body.url,
+    flightID: request.body.flightID,
+  });
+  const newQrCode = await db.select("*").from("qr_codes").where({
+    flightID: request.body.flightID,
+  });
+  response.send(newQrCode);
+});
+
 // AWS Setup
 const AWS = require("aws-sdk");
 const credentials = {
