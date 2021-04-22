@@ -6,24 +6,22 @@ exports.seed = function (knex) {
       // Inserts seed entries
       return knex("qr_codes").insert([
         {
+          user: "CA",
+          flight_id: 0,
           url:
             "https://flightlogpics.s3-ap-northeast-1.amazonaws.com/bordingp.jpeg",
-          flightID: 1,
         },
         {
+          user: "Takuma",
+          flight_id: 1,
           url:
             "https://flightlogpics.s3-ap-northeast-1.amazonaws.com/gate.jpeg",
-          flightID: 2,
         },
         {
+          user: "Sorai",
+          flight_id: 2,
           url:
             "https://flightlogpics.s3-ap-northeast-1.amazonaws.com/meal.jpeg",
-          flightID: 3,
-        },
-        {
-          url:
-            "https://flightlogpics.s3-ap-northeast-1.amazonaws.com/window.jpeg",
-          flightID: 4,
         },
       ]);
     });
