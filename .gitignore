@@ -1,5 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
-
+02_dummyflights.js
+04_dummyqr_codes.js
 # compiled output
 /dist
 /tmp
