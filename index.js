@@ -16,17 +16,15 @@ app.get("/", (request, response) => {
   response.send("hooray");
 });
 
-// distinct list of users
-app.get("/users", async (request, response) => {
-  const allUsers = await db.select("*").from("users");
-  response.send(allUsers);
-});
-
 // get list of flight of a user
 app.get("/flightlist/:username", async (request, response) => {
-  const allFlights = await db.select("*").from("flights").where({
-    username: request.params.username,
-  });
+  const allFlights = await db
+    .select("*")
+    .from("flights")
+    .where({
+      username: request.params.username,
+    })
+    .orderBy("date", "desc");
   response.send(allFlights);
 });
 
